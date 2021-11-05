@@ -1,0 +1,59 @@
+<div class="container">
+  
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<body>
+  <div class="w3-row-padding w3-margin-top">
+
+    <div *ngFor="let item of products; index as i;" class="w3-quarter">
+      <div class="w3-card">
+        <div class="w3-display-container">
+          <img [src]="item.img" class="w3-hover-opacity" style="width:100%">
+          <div class="w3-display-middle w3-display-hover">
+            <button class="w3-button w3-black" (click)="openLg(content,i)">ซื้อ <i
+                class="fa fa-shopping-cart"></i></button>
+          </div>
+        </div>
+        <p id="aad">{{item.name}}<br><b>{{item.price}} บาท</b></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pagination -->
+  <div class="w3-center w3-padding-32">
+    
+  </div>
+</body>
+
+</html>
+
+<ng-template #content let-modal>
+  <div class="modal-header" id="open">
+    <h4 class="modal-title" id = "aad">รายละเอียด</h4>
+  </div>
+  <div class="modal-body" id = "aad">
+    <p>รุ่น : {{products[number].name}}</p>
+    <p><img [src]="products[number].img" style="height:150px;"></p>
+
+    <p>ยี่ห้อโทรศัพท์ : {{products[number].type}}</p>
+    <p>รายละเอียด : {{products[number].detail}}</p>
+    <p>สิ่งที่แถมมา : {{products[number].takecare}}</p>
+    <p>สี : {{products[number].size}}</p>
+    <p>ราคา : {{products[number].price}} บาท</p>
+
+
+    <div class="row">
+      <div class="col-md-2">
+        <p>จำนวน : </p><input [(ngModel)]="quantity" type="number" class="form-control" id="inputZip">
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal-footer" id = "aad">
+    <p><button class="w3-button w3-blue-grey" (click)="addtoCart()">ยืนยัน</button></p>
+    <p><button class="w3-button w3-white" (click)="cancle()">ปิด</button></p>
+  </div>
+</ng-template>

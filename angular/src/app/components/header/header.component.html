@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    
+    .w3-bar .w3-button {
+        padding: 18px;
+    }
+
+</style>
+
+<body>
+    
+    <div class>
+        <div class="w3-bar  w3-card " id="myNavbar">
+            
+            <a href="#home" class="w3-bar-item w3-button ">
+                <i class="fa fa-home w3-xxlarge"></i>
+                <p>HOME</p>
+              </a>
+
+              <a href="profile" class="w3-bar-item w3-button ">
+                <i class="fa fa-user-circle w3-xxlarge"></i>
+                <p>ABOUT</p>
+              </a>
+            
+              <a href="add-address" *ngIf="getRole()=='user'" class="w3-bar-item w3-button "routerLinkActive="active">
+                <i class="fa fa-address-card w3-xxlarge"></i>
+                <p>Address</p>
+             </a>
+
+             <a href="cart" *ngIf="getRole()=='user'" class="w3-bar-item w3-button " routerLinkActive="active">
+                <i class="fa fa-shopping-cart w3-xxlarge"></i>
+                <p>รถเข็น</p>
+              </a>
+
+              <a href="order" *ngIf="getRole()=='user'" class="w3-bar-item w3-button " routerLinkActive="active">
+                <i class="fa fa-first-order w3-xxlarge"></i>
+                  <p>
+                      ORDER
+                  </p>
+              </a>
+
+              <a href="addproduct" *ngIf="getRole()=='admin'" class="w3-bar-item w3-button " routerLinkActive="active">
+                <i class="fa fa-plus-circle w3-xxlarge"></i>
+                  <p>
+                      เพิ่มสินค้า
+                </p>
+              </a>
+        
+              <a href="addminorder" *ngIf="getRole()=='admin'" class="w3-bar-item w3-button " routerLinkActive="active">
+                <i class="fa fa-first-order w3-xxlarge"></i>
+                  <p>ADMIN ORDER</p>
+              </a>
+
+           
+            <div class="w3-right w3-hide-small ">
+                <a *ngIf="local.get('user') != null"  class="w3-bar-item w3-button " routerLink="profile" routerLinkActive="active">
+                
+                    {{getUser()}}
+                </a>
+                <a id ="login"*ngIf="local.get('user') == null"  class="w3-bar-item w3-button w3-hover-black"  routerLink="signin" routerLinkActive="active">Login</a>
+                <a *ngIf="local.get('user') != null"  class="w3-bar-item w3-button w3-hover-black" routerLink="" routerLinkActive="active" (click)="logout()" >ลงชื่อออก</a>
+                <a  class="w3-bar-item w3-button w3-hover-black" routerLink="cart" routerLinkActive="active"><i class="fa fa-shopping-cart"> <span class="badge w3-text-orange"></span></i></a>
+                   
+            </div>     
+        </div>
+    </div>
+<br />
+<br />
+<br />

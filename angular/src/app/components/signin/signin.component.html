@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <header>
+    
+    <div class="w3-display-middle w3-margin-top w3-center">
+      <form [formGroup]="authForm" action="/action_page.php" style="max-width:500px;margin:auto" >
+        <h2 class="w3-center" id="sign">Sign In</h2>
+        <br/>
+    
+        <div class="input-container">
+          <input class="input-field" type="text" placeholder="Email" id="sign"  formControlName="email">
+        </div>
+        <div *ngIf=" (fromdata.email.dirty || fromdata.email.touched)" id="sign">
+          <div *ngIf="fromdata.email.errors?.required" class="alert alert-danger" >
+            Email is not required
+          </div>
+          <div *ngIf="fromdata.email.errors?.email" class="alert alert-danger">
+            Email is incorrect
+          </div>
+        </div>
+        <div class="input-container">
+          <input class="input-field" type="password" placeholder="Password" id="sign" name="psw" formControlName="password">
+        </div>
+        <div *ngIf="(fromdata.password.dirty || fromdata.password.touched)" id="sign">
+          <div *ngIf="fromdata.password.errors?.required" class="alert alert-danger">
+            Password is required
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="col-md-12">
+            <button type="button" class="btn btn-primary" (click)="signin()" id="sign">Sign in</button>&nbsp;
+  
+            <button type="button" class="btn btn-info" (click)="signup()" id="sign" >Register</button>
+          </div>
+        </div>
+      </form>
+    
+    </div>
+  </header>
+  
+</body>
+
+</html>
